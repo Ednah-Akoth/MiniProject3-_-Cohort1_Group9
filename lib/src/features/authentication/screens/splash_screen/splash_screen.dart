@@ -14,14 +14,13 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   @override
   void initState() {
     super.initState();
     Timer(
         const Duration(seconds: 3),
-        () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => OnboardingScreen())));
+        () => Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => OnboardingScreen())));
   }
 
   @override
@@ -41,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 style: Theme.of(context).textTheme.headline3,
               ),
               top: 450,
-              left: 90,
+              left: 60,
             )
           ],
         ));

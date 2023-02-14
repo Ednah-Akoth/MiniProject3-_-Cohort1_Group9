@@ -40,7 +40,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           LiquidSwipe(
             pages: pages,
             liquidController: controller,
-            slideIconWidget: Icon(Icons.arrow_back_ios),
+            // slideIconWidget: Icon(Icons.arrow_back_ios),
             enableSideReveal: true,
             onPageChangeCallback: OnPageChangeCallback,
           ),
@@ -71,19 +71,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   child: Icon(Icons.arrow_forward_ios),
                 ),
               )),
-          // skip button at the top
-          // Positioned(
-          //     top: 50,
-          //     right: 20,
-          //     child: TextButton(
-          //       onPressed: () {
-          //         controller.jumpToPage(page: 3);
-          //       },
-          //       child: Text(
-          //         "Skip",
-          //         style: TextStyle(color: tTextColor),
-          //       ),
-          //     )),
           Positioned(
               bottom: 10,
               child: AnimatedSmoothIndicator(
@@ -170,9 +157,9 @@ class onboardingItem2 extends StatelessWidget {
             ),
             Column(
               children: [
-                Text("No more ghosting",
+                Text("Up to Date Opportunities",
                     style: Theme.of(context).textTheme.headline3),
-                Text("Get fast responses from recruiters",
+                Text("Receive the latest opportunities from recruiters",
                     style: Theme.of(context).textTheme.headline4),
                 SizedBox(
                   height: 50.0,
@@ -208,9 +195,9 @@ class onboardingItem3 extends StatelessWidget {
             ),
             Column(
               children: [
-                Text("No more ghosting",
+                Text("Find Meaningful work",
                     style: Theme.of(context).textTheme.headline3),
-                Text("Get fast responses from recruiters",
+                Text("Connect with companies that value their employees",
                     style: Theme.of(context).textTheme.headline4),
                 SizedBox(
                   height: 50.0,
