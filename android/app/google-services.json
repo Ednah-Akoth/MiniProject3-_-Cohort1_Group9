@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "84067804421",
+    "project_id": "jobo-dde83",
+    "storage_bucket": "jobo-dde83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84067804421:android:bfc2123d96ddf708c9c36c",
+        "android_client_info": {
+          "package_name": "com.example.job_finder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "84067804421-b7kdgfsrvt4bb172ldrf6dr2alo8gs1n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn71bntTTFv1H8P1HUiayAkvt8PTpluks"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "84067804421-b7kdgfsrvt4bb172ldrf6dr2alo8gs1n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

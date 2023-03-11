@@ -9,7 +9,7 @@ const tPrimaryOnboarding2 = Color(0xFFE4A0F7);
 const tPrimaryOnboarding3 = Color(0xFFB660CD);
 const tTextColor = Color(0xFF1F2C37);
 const tTextAccentColor = Color(0xFF78828A);
+const tdismissable = Color.fromARGB(255, 236, 212, 231);
 
 const tWhiteColor = Color(0xFFffffff);
 const tBlackColor = Color(0xFF000000);
-
