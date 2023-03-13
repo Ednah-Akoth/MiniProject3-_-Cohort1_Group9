@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:job_finder/main.dart';
 import 'package:job_finder/src/features/authentication/models/message_chat_model.dart';
 import 'package:job_finder/src/features/authentication/models/message_chat_model.dart';
 
@@ -21,19 +22,41 @@ class _messagePage extends State<messagePage> {
             textAlign: TextAlign.center,
           ),
         ),
-        body: Column(
-          children: [
-            Expanded(
-                child: ListView.builder(
-                    itemCount: MessageChat.dummyMessage.length,
-                    itemBuilder: (context, index) {
-                      final chat = MessageChat.dummyMessage[index];
-                      return ListTile(
-                        title: Text(chat.name),
-                        subtitle: Text(chat.message),
-                      );
-                    }))
-          ],
+        body: Container(
+          color: Colors.white,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Stack(
+            children: [
+              ListView(),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Row(
+                  children: [
+                    Container(
+                        width: MediaQuery.of(context).size.width - 950,
+                        child: Card(
+                          color: Colors.grey.shade300,
+                          margin: EdgeInsets.only(left: 2, right: 2, bottom: 8),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                          child: TextFormField(
+                            textAlign: TextAlign.center,
+                            keyboardType: TextInputType.multiline,
+                            maxLines: 5,
+                            minLines: 1,
+                            decoration: const InputDecoration(
+                                border: InputBorder.none,
+                                hintText: 'Type a Message',
+                                contentPadding: EdgeInsets.all(5)),
+                          ),
+                        )),
+                  ],
+                ),
+              )
+            ],
+          ),
         ));
   }
 }

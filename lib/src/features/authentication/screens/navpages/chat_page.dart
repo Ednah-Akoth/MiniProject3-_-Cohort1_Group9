@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:job_finder/src/constants/colors.dart';
 import 'package:job_finder/src/features/authentication/models/chat_model.dart';
-import 'package:job_finder/src/features/authentication/screens/navpages/individual_message_chat.dart';
+import 'package:job_finder/src/features/authentication/screens/messaging/individual_message_chat.dart';
 
 import '../../models/message_chat_model.dart';
 

@@ -125,21 +125,24 @@ class _EmailSignup extends State<EmailSignup> {
                   )
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const Text('By signing up you agree to our'),
-                  TextButton(
-                    child: const Text(
-                      'Terms and Conditions of Use',
-                      style: TextStyle(
-                          fontSize: 12, color: Color.fromRGBO(112, 41, 99, 10)),
-                    ),
-                    onPressed: () {
-                      //signup screen
-                    },
-                  )
-                ],
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const Text('By signing up you agree to our'),
+                    TextButton(
+                      child: const Text(
+                        'Terms and Conditions of Use',
+                        style: TextStyle(
+                            fontSize: 12,
+                            color: Color.fromRGBO(112, 41, 99, 10)),
+                      ),
+                      onPressed: () {
+                        //signup screen
+                      },
+                    )
+                  ],
+                ),
               ),
             ],
           ),

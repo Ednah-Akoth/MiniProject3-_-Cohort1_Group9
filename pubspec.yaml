@@ -30,6 +30,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   device_preview: '1.1.0'
+  file_picker: ^5.2.5
   flutter:
     sdk: flutter
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:job_finder/src/constants/colors.dart';
+import 'package:job_finder/src/features/authentication/screens/jobs/specific_job.dart';
 import 'package:job_finder/src/features/authentication/screens/navpages/chat_page.dart';
 import 'package:job_finder/src/features/authentication/screens/navpages/home_page.dart';
 import 'package:job_finder/src/features/authentication/screens/navpages/myjobs_page.dart';
@@ -13,7 +14,8 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  List pages = [HomePage(), ChatPage(), MyJobsPage(), ProfilePage()];
+  // List pages = [HomePage(), ChatPage(), MyJobsPage(), ProfilePage()];
+  List pages = [HomePage(), ChatPage(), SpecificJob(), ProfilePage()];
   int currentIndex = 0;
   void onTap(index) {
     setState(() {
