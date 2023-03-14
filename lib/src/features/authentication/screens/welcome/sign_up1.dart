@@ -16,117 +16,148 @@ class _EmailSignup extends State<EmailSignup> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color.fromRGBO(252, 249, 249, 1),
-        body: Padding(
-          padding: EdgeInsets.all(10.0),
-          child: ListView(
-            children: <Widget>[
-              Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.all(10.0),
-                child: Text(
-                  "Create Account",
-                  style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.w600,
-                      color: Color.fromRGBO(112, 41, 99, 10)),
-                ),
-              ),
-              Container(
+        body: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.all(10.0),
+            child: ListView(
+              children: <Widget>[
+                Container(
                   alignment: Alignment.center,
-                  padding: const EdgeInsets.all(10),
-                  child: const Text(
-                    'Welcome',
-                    style: TextStyle(fontSize: 20),
-                  )),
-              Container(
-                padding: const EdgeInsets.all(10),
-                child: TextField(
-                  controller: nameController,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(30.0))),
-                    labelText: 'Continue with Google',
-                  ),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.all(10),
-                child: TextField(
-                  controller: nameController,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(30.0))),
-                    labelText: 'Continue  with Apple',
-                  ),
-                ),
-              ),
-              Container(
-                  alignment: Alignment.centerLeft,
-                  padding: const EdgeInsets.all(10),
-                  child: const Text(
-                    'Email',
+                  padding: EdgeInsets.all(10.0),
+                  child: Text(
+                    "Create Account",
                     style: TextStyle(
-                        fontSize: 15, color: Color.fromRGBO(112, 41, 99, 10)),
-                  )),
-              Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
-                child: TextField(
-                  obscureText: true,
-                  controller: passwordController,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(30.0))),
-                    labelText: 'Enter Email',
+                        fontSize: 30,
+                        fontWeight: FontWeight.w600,
+                        color: Color.fromRGBO(112, 41, 99, 10)),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 20,
-                width: 20,
-              ),
-              SizedBox(
-                height: 65,
-                width: 10,
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromRGBO(112, 41, 99, 10),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 3.0, vertical: 3.0),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0)),
-                    ),
-                    onPressed: (() {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: ((context) => Signup()),
-                          ));
-                    }),
-                    child: Text("Continue with Email")),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const Text('Already have an account?'),
-                  TextButton(
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.all(10),
                     child: const Text(
-                      'Login',
-                      style: TextStyle(
-                          fontSize: 12, color: Color.fromRGBO(112, 41, 99, 10)),
-                    ),
-                    onPressed: (() {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: ((context) => Login()),
-                          ));
-                    }),
-                  )
-                ],
-              ),
-              Expanded(
-                child: Row(
+                      'Welcome',
+                      style:
+                          TextStyle(fontSize: 26, fontWeight: FontWeight.w500),
+                    )),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                    padding: const EdgeInsets.all(15),
+                    margin: EdgeInsets.symmetric(horizontal: 15),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        border: Border.all(
+                          width: 1,
+                          color: Colors.black54,
+                        )),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          "assets/images/google.png",
+                          height: 30,
+                          width: 30,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "Continue with Google",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w400),
+                        )
+                      ],
+                    )),
+                Container(
+                    padding: const EdgeInsets.all(15),
+                    margin: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        border: Border.all(
+                          width: 1,
+                          color: Colors.black54,
+                        )),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          "assets/images/apple-logo.png",
+                          height: 30,
+                          width: 30,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "Continue with Apple",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w400),
+                        )
+                      ],
+                    )),
+                Container(
+                    alignment: Alignment.centerLeft,
+                    padding: const EdgeInsets.all(10),
+                    margin: EdgeInsets.symmetric(vertical: 20),
+                    child: Center(
+                      child: const Text(
+                        'Or',
+                        style: TextStyle(
+                            fontSize: 25,
+                            color: Color.fromRGBO(112, 41, 99, 10)),
+                      ),
+                    )),
+                SizedBox(
+                  height: 20,
+                  width: 20,
+                ),
+                SizedBox(
+                  height: 65,
+                  width: 10,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color.fromRGBO(112, 41, 99, 10),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 3.0, vertical: 3.0),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0)),
+                      ),
+                      onPressed: (() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: ((context) => Signup()),
+                            ));
+                      }),
+                      child: Text("Continue with Email")),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const Text('Already have an account?'),
+                    TextButton(
+                      child: const Text(
+                        'Login',
+                        style: TextStyle(
+                            fontSize: 12,
+                            color: Color.fromRGBO(112, 41, 99, 10)),
+                      ),
+                      onPressed: (() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: ((context) => Login()),
+                            ));
+                      }),
+                    )
+                  ],
+                ),
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     const Text('By signing up you agree to our'),
@@ -143,8 +174,8 @@ class _EmailSignup extends State<EmailSignup> {
                     )
                   ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ));
   }

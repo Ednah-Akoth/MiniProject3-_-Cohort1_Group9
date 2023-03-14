@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:job_finder/src/features/authentication/screens/welcome/welcome_screen.dart';
+
 
 import '../../../../constants/colors.dart';
 import '../../../../constants/image_strings.dart';
+import '../../controllers/auth_controller.dart';
 import '../onboarding_screens/onboarding.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -20,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
         const Duration(seconds: 3),
         () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => OnboardingScreen())));
+            MaterialPageRoute(builder: (context) => AuthController())));
   }
 
   @override
