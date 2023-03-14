@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../constants/colors.dart';
 import '../welcome/sign_up2.dart';
+import 'apply_job_popup.dart';
 
 class SpecificJob extends StatefulWidget {
   @override
@@ -84,7 +85,8 @@ class _SpecificJob extends State<SpecificJob> {
             ),
             ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                  backgroundColor:
+                      MaterialStateProperty.all(Colors.transparent),
                   padding: MaterialStateProperty.all(EdgeInsets.all(20)),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
@@ -96,7 +98,21 @@ class _SpecificJob extends State<SpecificJob> {
                   minimumSize: MaterialStateProperty.all(Size(180, 200)),
                 ),
                 onPressed: _uploadFile,
-                child: Text('Upload CV')),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(
+                      Icons.cloud_upload,
+                      color: Colors.black,
+                      size: 50,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text('Upload CV',
+                        style: TextStyle(fontSize: 18, color: Colors.black)),
+                  ],
+                )),
             Container(
               alignment: Alignment.centerLeft,
               padding: const EdgeInsets.all(10),
@@ -128,14 +144,18 @@ class _SpecificJob extends State<SpecificJob> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0)),
                   ),
+                  // crud operation required here to add the person's details to firebase
                   onPressed: (() {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: ((context) => Signup()),
+                          builder: ((context) => SpecificJobPop()),
                         ));
                   }),
-                  child: Text("Continue with Email")),
+                  child: const Text(
+                    "Continue",
+                    style: TextStyle(fontSize: 22),
+                  )),
             ),
           ]),
         ));
