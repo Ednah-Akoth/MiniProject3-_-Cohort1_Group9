@@ -1,8 +1,9 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:job_finder/src/constants/colors.dart';
-import 'apply_job_popup.dart';
+import '../../authentication/screens/jobs/apply_job_popup.dart';
 
 class SavedJob extends StatefulWidget {
   @override
@@ -110,94 +111,143 @@ class _SavedJobState extends State<SavedJob>
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(23),
-                  child: Center(
-                    child: Container(
-                      padding: EdgeInsets.all(5.5),
-                      alignment: Alignment.bottomCenter,
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(80),
-                                color: Color.fromRGBO(185, 206, 200, 1)),
-                            child: Icon(Icons.wallet_outlined,
-                                color: Color.fromRGBO(0, 204, 154, 1)),
-                          )
-                        ],
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(28),
+                    child: Center(
+                      child: Container(
+                        padding: EdgeInsets.all(5.5),
+                        alignment: Alignment.bottomCenter,
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 50,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(80),
+                                  color: Color.fromRGBO(192, 245, 226, 1)),
+                              child: Icon(Icons.wallet_outlined,
+                                  color: Color.fromRGBO(0, 204, 154, 1)),
+                            ),
+                            const Text(
+                              'Salary',
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            const Text(
+                              "6k-11k",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(0),
-                  child: Center(
-                    child: Container(
-                      padding: EdgeInsets.all(23),
-                      alignment: Alignment.center,
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(80),
-                                color: Colors.black12),
-                            child: Icon(Icons.wallet_travel_rounded,
-                                color: Color.fromRGBO(94, 62, 136, 0.533)),
-                          )
-                        ],
+                  Padding(
+                    padding: const EdgeInsets.all(28),
+                    child: Center(
+                      child: Container(
+                        padding: EdgeInsets.all(5.5),
+                        alignment: Alignment.bottomCenter,
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 50,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(80),
+                                  color: Colors.black12),
+                              child: Icon(Icons.wallet_travel_rounded,
+                                  color: Color.fromRGBO(94, 62, 136, 0.533)),
+                            ),
+                            const Text(
+                              'Job Type',
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            const Text(
+                              'Remote',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(23),
-                  alignment: Alignment.center,
-                  child: Column(
-                    children: [
-                      Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(80),
-                            color: Colors.black12),
-                        child: Icon(Icons.person_2_outlined,
-                            color: Color.fromRGBO(247, 75, 7, 0.979)),
-                      )
-                    ],
-                  ),
-                )
-              ],
+                  Padding(
+                    padding: const EdgeInsets.all(28),
+                    child: Center(
+                      child: Container(
+                        padding: EdgeInsets.all(5.5),
+                        alignment: Alignment.center,
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 50,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(80),
+                                  color: Colors.black12),
+                              child: Icon(Icons.person_2_outlined,
+                                  color: Color.fromRGBO(247, 75, 7, 0.979)),
+                            ),
+                            const Text(
+                              'Position',
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            const Text(
+                              'Senior',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            // const SizedBox(
+                            //   height: 5,
+                            // ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
           TabBar(
             controller: _tabController,
             labelColor: Colors.black,
             unselectedLabelColor: Colors.grey,
+            indicator: BoxDecoration(
+                borderRadius: BorderRadius.circular(50), // Creates border
+                color: Colors.grey),
             tabs: [
-              Tab(
-                icon: Icon(Icons.person),
-                text: 'Tab 1',
+              Container(
+                decoration: BoxDecoration(shape: BoxShape.circle),
+                child: const Tab(
+                  text: 'Description',
+                ),
               ),
-              Tab(
-                icon: Icon(Icons.work),
-                text: 'Tab 2',
+              Container(
+                child: const Tab(
+                  text: 'Requirement',
+                ),
               ),
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Tab(
-                  child: Text('Tab 3'),
+                  child: Text('Responsible'),
                 ),
               ),
             ],
@@ -208,14 +258,21 @@ class _SavedJobState extends State<SavedJob>
               children: [
                 Container(
                   color: Colors.white,
-                  child: Center(
-                    child: Text('Section 1'),
+                  child: const Center(
+                    child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Text(
+                          'Description, Zappos’s job descriptions are candidate-centric, focusing on the reasons a candidate might want to work there before getting into the job requirements'),
+                    ),
                   ),
                 ),
                 Container(
                   color: Colors.white,
                   child: Center(
-                    child: Text('Section 2'),
+                    child: Text(
+                      'Section 2',
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                 ),
                 Container(
@@ -228,12 +285,12 @@ class _SavedJobState extends State<SavedJob>
             ),
           ),
           const Divider(
-            height: 60,
+            height: 15,
             color: Colors.white30,
           ),
           SizedBox(
-            height: 65,
-            width: 350,
+            height: 50,
+            width: 300,
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color.fromRGBO(112, 41, 99, 10),
@@ -250,9 +307,13 @@ class _SavedJobState extends State<SavedJob>
                       ));
                 }),
                 child: const Text(
-                  "Continue",
+                  "Apply",
                   style: TextStyle(fontSize: 22),
                 )),
+          ),
+          const Divider(
+            height: 10,
+            color: Colors.white30,
           ),
         ],
       ),
