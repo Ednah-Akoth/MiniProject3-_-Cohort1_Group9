@@ -48,6 +48,9 @@ dependencies:
   shared_preferences: ^2.0.18
   file_picker: ^5.2.5
   device_preview: ^1.1.0
+  google_sign_in: ^6.0.2
+  google_sign_in_web: ^0.11.0+2
+  google_sign_in_android: ^6.1.8
 
 
 dev_dependencies:

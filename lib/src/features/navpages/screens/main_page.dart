@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:job_finder/src/constants/colors.dart';
+import 'package:job_finder/src/features/navpages/screens/applied_jobs.dart';
 
-import 'package:job_finder/src/features/navpages/screens/chat_page.dart';
 import 'package:job_finder/src/features/navpages/screens/home_page.dart';
 import 'package:job_finder/src/features/navpages/screens/myjobs_page.dart';
 import 'package:job_finder/src/features/navpages/screens/profile_page.dart';
@@ -15,7 +15,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   // List pages = [HomePage(), ChatPage(), MyJobsPage(), ProfilePage()];
-  List pages = [HomePage(), ChatPage(), MyJobsPage(), ProfilePage()];
+  List pages = [HomePage(), MyJobsPage(), AppliedJobs(), ProfilePage()];
   int currentIndex = 0;
   void onTap(index) {
     setState(() {
@@ -39,8 +39,9 @@ class _MainPageState extends State<MainPage> {
         elevation: 70.0,
         items: [
           BottomNavigationBarItem(label: "Home", icon: Icon(Icons.home)),
-          BottomNavigationBarItem(label: "Chat", icon: Icon(Icons.chat)),
-          BottomNavigationBarItem(label: "MyJobs", icon: Icon(Icons.work)),
+          BottomNavigationBarItem(
+              label: "Saved", icon: Icon(Icons.bookmark_add_rounded)),
+          BottomNavigationBarItem(label: "Applied", icon: Icon(Icons.work)),
           BottomNavigationBarItem(label: "Profile", icon: Icon(Icons.person))
         ],
       ),

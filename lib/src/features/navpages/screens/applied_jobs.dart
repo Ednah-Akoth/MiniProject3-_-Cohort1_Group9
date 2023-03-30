@@ -4,10 +4,7 @@ import 'package:job_finder/src/features/navpages/models/mock_data.dart';
 import 'package:job_finder/src/features/navpages/screens/myjobs_page.dart';
 import 'package:job_finder/src/features/navpages/screens/saved_job_details.dart';
 
-enum MenuItem {
-  item1,
-  item2,
-}
+enum MenuItem { item1, item2, item3 }
 
 class AppliedJobs extends StatefulWidget {
   const AppliedJobs({super.key});
@@ -40,16 +37,23 @@ class _AppliedJobsState extends State<AppliedJobs> {
                 } else if (value == MenuItem.item2) {
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => AppliedJobs()));
+                } else if (value == MenuItem.item3) {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => AppliedJobs()));
                 }
               },
               itemBuilder: (context) => [
                     PopupMenuItem(
                       value: MenuItem.item1,
-                      child: Text("Saved"),
+                      child: Text("Waiting"),
                     ),
                     PopupMenuItem(
                       value: MenuItem.item2,
-                      child: Text("Applied"),
+                      child: Text("Accepted"),
+                    ),
+                    PopupMenuItem(
+                      value: MenuItem.item2,
+                      child: Text("Rejected"),
                     ),
                   ])
         ],
@@ -155,19 +159,6 @@ class _AppliedJobsState extends State<AppliedJobs> {
                                 ],
                               )
                             ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20.0),
-                          child: Container(
-                            width: 48,
-                            height: 48,
-                            child: Icon(
-                              Icons.bookmark_border_rounded,
-                              size: 40,
-                              color: tPrimaryOnboarding3,
-                              weight: 0.5,
-                            ),
                           ),
                         ),
                       ],

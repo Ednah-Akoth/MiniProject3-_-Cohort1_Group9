@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:job_finder/src/features/authentication/controllers/auth_service.dart';
 import 'package:job_finder/src/features/authentication/screens/welcome/reset_password.dart';
 import 'package:job_finder/src/features/authentication/screens/welcome/sign_up1.dart';
 import 'package:job_finder/src/features/navpages/screens/home_page.dart';
@@ -16,31 +17,7 @@ class Login extends StatefulWidget {
 class _Login extends State<Login> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-
-  void SignInFunction() {
-    FirebaseAuth.instance
-        .signInWithEmailAndPassword(
-            email: emailController.text.trim(),
-            password: passwordController.text.trim())
-        .then((value) {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => MainPage()));
-
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text("Success!"),
-        ),
-      );
-    }).onError((error, stackTrace) {
-      print("Error ${error.toString()}");
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text("Error ${error.toString()}"),
-        ),
-      );
-    });
-  }
-
+  bool loading = false; //to set loader
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,15 +39,8 @@ class _Login extends State<Login> {
                   ),
                 ),
                 Container(
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.all(10),
-                    child: const Text(
-                      'Welcome',
-                      style: TextStyle(fontSize: 20),
-                    )),
-                Container(
                     padding: const EdgeInsets.all(15),
-                    margin: EdgeInsets.symmetric(horizontal: 15),
+                    margin: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                         border: Border.all(
@@ -96,31 +66,11 @@ class _Login extends State<Login> {
                       ],
                     )),
                 Container(
-                    padding: const EdgeInsets.all(15),
-                    margin: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(
-                          width: 1,
-                          color: Colors.black54,
-                        )),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          "assets/images/apple-logo.png",
-                          height: 30,
-                          width: 30,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "Continue with Apple",
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.w400),
-                        )
-                      ],
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.all(10),
+                    child: const Text(
+                      'Or',
+                      style: TextStyle(fontSize: 20),
                     )),
                 Container(
                     alignment: Alignment.centerLeft,
@@ -193,21 +143,51 @@ class _Login extends State<Login> {
                   height: 20,
                   width: 20,
                 ),
-                SizedBox(
-                  height: 65,
-                  width: 10,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromRGBO(112, 41, 99, 10),
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 3.0, vertical: 3.0),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0)),
-                      ),
-                      onPressed: (() {
-                        SignInFunction();
-                      }),
-                      child: Text("Login")),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: loading
+                      ? CircularProgressIndicator()
+                      : Container(
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    Color.fromRGBO(112, 41, 99, 10),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 10.0, vertical: 20.0),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30.0)),
+                              ),
+                              onPressed: () async {
+                                setState(() {
+                                  loading = true;
+                                });
+                                if (emailController.text == "" ||
+                                    passwordController.text == "") {
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(SnackBar(
+                                    content: Text("All fields are required"),
+                                    backgroundColor: Colors.redAccent,
+                                  ));
+                                } else {
+                                  try {
+                                    User? result = await AuthService().login(
+                                        emailController.text.trim(),
+                                        passwordController.text.trim(),
+                                        context);
+                                  } catch (error) {
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(SnackBar(
+                                      content: Text("${error.toString()}"),
+                                      backgroundColor: Colors.redAccent,
+                                    ));
+                                  }
+                                }
+                                setState(() {
+                                  loading = false;
+                                });
+                              },
+                              child: Text("Login")),
+                        ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

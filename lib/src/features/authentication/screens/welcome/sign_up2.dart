@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:job_finder/src/features/authentication/controllers/auth_service.dart';
 import 'package:job_finder/src/features/authentication/screens/welcome/login.dart';
 import 'package:job_finder/src/features/navpages/screens/home_page.dart';
 import 'package:job_finder/src/features/navpages/screens/main_page.dart';
@@ -18,45 +19,13 @@ class _Signup extends State<Signup> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmpasswordController = TextEditingController();
+  bool loading = false;
 
   @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
     confirmpasswordController.dispose();
-  }
-
-  void SignUpFunction() {
-    if (passwordConfirmed()) {
-      FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-              email: emailController.text.trim(),
-              password: passwordController.text.trim())
-          .then((value) {
-        print("Created new account");
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => MainPage()));
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text("Success!"),
-          ),
-        );
-      }).onError((error, stackTrace) {
-        print("Error ${error.toString()}");
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text("Error ${error.toString()}"),
-          ),
-        );
-      });
-    } else {
-      print("passwords don't match");
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text("passwords don't match"),
-        ),
-      );
-    }
   }
 
 // password confirmation check
@@ -170,32 +139,52 @@ class _Signup extends State<Signup> {
                 height: 20,
                 width: 20,
               ),
-              SizedBox(
-                height: 65,
-                width: 10,
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: tPrimaryColor,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 3.0, vertical: 3.0),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0)),
-                    ),
-                    onPressed: () {
-                      SignUpFunction();
-                      // FirebaseAuth.instance
-                      //     .createUserWithEmailAndPassword(
-                      //         email: emailController.text.trim(),
-                      //         password: passwordController.text.trim())
-                      //     .then((value) {
-                      //   print("Created new account");
-                      //   Navigator.push(context,
-                      //       MaterialPageRoute(builder: (context) => Welcome()));
-                      // }).onError((error, stackTrace) {
-                      //   print("Error ${error.toString()}");
-                      // });
-                    },
-                    child: Text("Sign Up")),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: loading
+                    ? CircularProgressIndicator()
+                    : Container(
+                        child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: tPrimaryColor,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 3.0, vertical: 20.0),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30.0)),
+                            ),
+                            onPressed: () async {
+                              // setting laoding is true after pressing
+                              setState(() {
+                                loading = true;
+                              });
+                              if (emailController.text == "" ||
+                                  passwordController.text == "") {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(
+                                  content: Text("All fields are required"),
+                                  backgroundColor: Colors.redAccent,
+                                ));
+                              } else if (passwordController.text !=
+                                  confirmpasswordController.text) {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(
+                                  content: Text("Passwords don't match"),
+                                  backgroundColor: Colors.redAccent,
+                                ));
+                              } else {
+                                User? result = await AuthService().register(
+                                    emailController.text.trim(),
+                                    passwordController.text.trim(),
+                                    context);
+                              }
+
+                              // after all is done, set to false
+                              setState(() {
+                                loading = false;
+                              });
+                            },
+                            child: Text("Sign Up")),
+                      ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

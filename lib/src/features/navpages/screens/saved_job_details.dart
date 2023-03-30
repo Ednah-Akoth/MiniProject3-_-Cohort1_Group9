@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:job_finder/src/constants/colors.dart';
-import '../../authentication/screens/jobs/apply_job_popup.dart';
+import 'package:job_finder/src/features/navpages/screens/apply_job_popup.dart';
+
 
 class SavedJob extends StatefulWidget {
   @override

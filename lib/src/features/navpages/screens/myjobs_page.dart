@@ -4,11 +4,6 @@ import 'package:job_finder/src/features/navpages/models/mock_data.dart';
 import 'package:job_finder/src/features/navpages/screens/applied_jobs.dart';
 import 'package:job_finder/src/features/navpages/screens/saved_job_details.dart';
 
-enum MenuItem {
-  item1,
-  item2,
-}
-
 class MyJobsPage extends StatelessWidget {
   const MyJobsPage({super.key});
 
@@ -19,35 +14,13 @@ class MyJobsPage extends StatelessWidget {
         elevation: 0,
         title: const ListTile(
           title: Center(
-            child: Text('My Jobs',
+            child: Text('Saved Jobs',
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: tPrimaryColor)),
           ),
         ),
-        actions: [
-          PopupMenuButton<MenuItem>(
-              onSelected: (value) {
-                if (value == MenuItem.item1) {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => MyJobsPage()));
-                } else if (value == MenuItem.item2) {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => AppliedJobs()));
-                }
-              },
-              itemBuilder: (context) => [
-                    PopupMenuItem(
-                      value: MenuItem.item1,
-                      child: Text("Saved"),
-                    ),
-                    PopupMenuItem(
-                      value: MenuItem.item2,
-                      child: Text("Applied"),
-                    ),
-                  ])
-        ],
         iconTheme: IconThemeData(color: tPrimaryColor, size: 25),
         backgroundColor: Colors.white,
       ),
@@ -58,7 +31,7 @@ class MyJobsPage extends StatelessWidget {
           children: [
             for (int i = 0; i < popularJobs.length; i++)
               GestureDetector(
-                onTap: (){
+                onTap: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -73,7 +46,6 @@ class MyJobsPage extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(width: 0.5, color: Colors.black12),
-                          
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 8.0, top: 15.0),
@@ -153,19 +125,7 @@ class MyJobsPage extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20.0),
-                          child: Container(
-                            width: 48,
-                            height: 48,
-                            child: Icon(
-                              Icons.bookmark_border_rounded,
-                              size: 40,
-                              color: tPrimaryOnboarding3,
-                              weight: 0.5,
-                            ),
-                          ),
-                        ),
+                        
                       ],
                     ),
                   ),

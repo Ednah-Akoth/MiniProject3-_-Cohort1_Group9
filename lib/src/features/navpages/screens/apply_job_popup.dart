@@ -5,9 +5,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:job_finder/src/constants/colors.dart';
 
+import 'package:job_finder/src/features/navpages/screens/specific_job.dart';
+import 'package:job_finder/src/features/authentication/screens/welcome/sign_up2.dart';
+import 'package:job_finder/src/features/navpages/screens/saved_job_details.dart';
 
-import 'package:job_finder/src/features/navpages/screens/main_page.dart';
-import '../../authentication/screens/welcome/sign_up2.dart';
 import 'apply_job_popup.dart';
 
 class SpecificJobPop extends StatefulWidget {
@@ -157,7 +158,7 @@ class _SpecificJobPop extends State<SpecificJobPop> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: ((context) => MainPage()),
+                            builder: ((context) => Signup()),
                           ));
                     }),
                     child: const Text(
@@ -238,7 +239,7 @@ class _SpecificJobPop extends State<SpecificJobPop> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: ((context) => MainPage()),
+                                builder: ((context) => SavedJob()),
                               ));
                         }),
                         child: const Text(
