@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:job_finder/src/constants/colors.dart';
-import 'package:job_finder/src/features/navpages/models/chat_model.dart';
+import '../../../constants/colors.dart';
+import '../models/chat_model.dart';
 
 class JobsWidget extends StatefulWidget {
   const JobsWidget({super.key});

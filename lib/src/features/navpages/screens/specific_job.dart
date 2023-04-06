@@ -1,10 +1,10 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:job_finder/src/features/navpages/screens/apply_job_popup.dart';
 
 import '../../../constants/colors.dart';
 import '../../authentication/screens/welcome/sign_up2.dart';
+import 'apply_job_popup.dart';
 
 class SpecificJob extends StatefulWidget {
   @override

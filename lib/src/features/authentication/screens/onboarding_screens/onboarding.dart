@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:job_finder/src/constants/image_strings.dart';
-import 'package:job_finder/src/features/authentication/screens/welcome/sign_up1.dart';
-import 'package:job_finder/src/features/navpages/screens/home_page.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../constants/colors.dart';
+import '../../../../constants/image_strings.dart';
+import '../../../navpages/screens/home_page.dart';
+import '../welcome/sign_up1.dart';
 
 class OnboardingScreen extends StatefulWidget {
   OnboardingScreen({super.key});

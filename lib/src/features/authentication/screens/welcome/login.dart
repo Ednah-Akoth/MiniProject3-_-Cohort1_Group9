@@ -1,13 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:job_finder/src/features/authentication/controllers/auth_service.dart';
-import 'package:job_finder/src/features/authentication/screens/welcome/reset_password.dart';
-import 'package:job_finder/src/features/authentication/screens/welcome/sign_up1.dart';
-import 'package:job_finder/src/features/navpages/screens/home_page.dart';
-import 'package:job_finder/src/features/navpages/screens/main_page.dart';
-
+import 'package:job_application/src/features/authentication/screens/welcome/reset_password.dart';
+import 'package:job_application/src/features/authentication/screens/welcome/sign_up1.dart';
+import 'package:email_validator/email_validator.dart';
 import '../../../../constants/colors.dart';
+import '../../controllers/auth_service.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -81,8 +79,17 @@ class _Login extends State<Login> {
                     )),
                 Container(
                   padding: const EdgeInsets.all(10),
-                  child: TextField(
+                  child: TextFormField(
                     controller: emailController,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (value) {
+                      if (!EmailValidator.validate(
+                          emailController.text.trim())) {
+                        return "Invalid Email";
+                      } else if (value!.isEmpty) {
+                        return "Email required";
+                      }
+                    },
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius:
@@ -104,9 +111,17 @@ class _Login extends State<Login> {
                 Container(
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(10),
-                  child: TextField(
+                  child: TextFormField(
                     obscureText: true,
                     controller: passwordController,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Password is required";
+                      } else if (value.length < 6) {
+                        return "Password must be greater than 6 characters";
+                      }
+                    },
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius:

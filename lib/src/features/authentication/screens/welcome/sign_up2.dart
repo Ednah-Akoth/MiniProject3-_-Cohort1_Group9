@@ -2,11 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:job_finder/src/features/authentication/controllers/auth_service.dart';
-import 'package:job_finder/src/features/authentication/screens/welcome/login.dart';
-import 'package:job_finder/src/features/navpages/screens/home_page.dart';
-import 'package:job_finder/src/features/navpages/screens/main_page.dart';
 import '../../../../constants/colors.dart';
+import '../../controllers/auth_service.dart';
+import 'login.dart';
 
 // import 'login.dart';
 
@@ -74,8 +72,9 @@ class _Signup extends State<Signup> {
                   )),
               Container(
                 padding: const EdgeInsets.all(10),
-                child: TextField(
+                child: TextFormField(
                   controller: emailController,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius:
@@ -97,9 +96,17 @@ class _Signup extends State<Signup> {
               Container(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
-                child: TextField(
+                child: TextFormField(
                   obscureText: true,
                   controller: passwordController,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Password required";
+                    } else if (value.length < 6) {
+                      return "Your Password must be greater than 6 characters";
+                    }
+                  },
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius:
@@ -121,8 +128,9 @@ class _Signup extends State<Signup> {
               Container(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
-                child: TextField(
+                child: TextFormField(
                   obscureText: true,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   controller: confirmpasswordController,
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(

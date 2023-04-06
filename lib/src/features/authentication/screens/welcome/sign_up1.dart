@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:job_finder/src/features/authentication/controllers/auth_service.dart';
-import 'package:job_finder/src/features/authentication/screens/welcome/sign_up2.dart';
+import 'package:job_application/src/features/authentication/screens/welcome/sign_up2.dart';
 
+import '../../controllers/auth_service.dart';
 import 'login.dart';
 
 class EmailSignup extends StatefulWidget {

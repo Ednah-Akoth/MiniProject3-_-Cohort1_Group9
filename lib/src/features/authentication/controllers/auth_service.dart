@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:job_finder/src/features/authentication/screens/welcome/login.dart';
-import 'package:job_finder/src/features/navpages/screens/main_page.dart';
+import '../../navpages/screens/main_page.dart';
+import '../screens/welcome/login.dart';
 
 
 
