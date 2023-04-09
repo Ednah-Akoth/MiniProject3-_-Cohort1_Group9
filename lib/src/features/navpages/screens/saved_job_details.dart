@@ -2,9 +2,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:job_finder/src/constants/colors.dart';
-import 'package:job_finder/src/features/navpages/screens/apply_job_popup.dart';
 
+import '../../../constants/colors.dart';
+import 'apply_job_popup.dart';
 
 class SavedJob extends StatefulWidget {
   @override
@@ -62,8 +62,7 @@ class _SavedJobState extends State<SavedJob>
                 SizedBox(
                   width: 200,
                   height: 100,
-                  child: Image.network(
-                      'https://randomuser.me/api/portraits/men/81.jpg'),
+                  child: Image.asset('assets/images/rec1.png'),
                 ),
                 const SizedBox(
                   height: 15,
@@ -271,7 +270,7 @@ class _SavedJobState extends State<SavedJob>
                   color: Colors.white,
                   child: Center(
                     child: Text(
-                      'Section 2',
+                      'Description, Zappos’s job descriptions are candidate-centric, focusing on the reasons a candidate might want to work there before getting into the job requirements',
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
@@ -279,7 +278,8 @@ class _SavedJobState extends State<SavedJob>
                 Container(
                   color: Colors.white,
                   child: Center(
-                    child: Text('Section 3'),
+                    child: Text(
+                        'Description, Zappos’s job descriptions are candidate-centric, focusing on the reasons a candidate might want to work there before getting into the job requirements'),
                   ),
                 ),
               ],

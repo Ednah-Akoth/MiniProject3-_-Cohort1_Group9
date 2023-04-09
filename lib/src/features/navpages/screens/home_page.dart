@@ -2,10 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:job_finder/src/constants/colors.dart';
-import 'package:job_finder/src/features/authentication/screens/welcome/login.dart';
-import 'package:job_finder/src/features/navpages/models/mock_data.dart';
-import 'package:job_finder/src/features/navpages/screens/jobs.dart';
+
+import '../../../constants/colors.dart';
+import '../../authentication/controllers/auth_service.dart';
+import '../../authentication/screens/welcome/login.dart';
+import '../models/mock_data.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -103,8 +104,15 @@ class _HomePageState extends State<HomePage> {
                         alignment: Alignment.center,
                         backgroundColor: MaterialStatePropertyAll<Color>(
                             Color.fromRGBO(112, 41, 99, 10))),
-                    onPressed: () {
-                      SignOutFunction();
+                    onPressed: () async {
+                      try {
+                        await AuthService().signout(context);
+                      } catch (error) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text("${error.toString()}"),
+                          backgroundColor: Colors.redAccent,
+                        ));
+                      }
                     },
                     child: const Text(
                       'Logout',
@@ -120,8 +128,7 @@ class _HomePageState extends State<HomePage> {
           title: const ListTile(
             leading: CircleAvatar(
               radius: 24.0,
-              backgroundImage: NetworkImage(
-                  'https://randomuser.me/api/portraits/women/49.jpg'),
+              backgroundImage: AssetImage('assets/images/avatar.png')
             ),
             title: Text('Hi, Welcome Back! 👋',
                 style: TextStyle(

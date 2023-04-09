@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:job_finder/src/constants/colors.dart';
-import 'package:job_finder/src/features/navpages/models/mock_data.dart';
-import 'package:job_finder/src/features/navpages/screens/myjobs_page.dart';
-import 'package:job_finder/src/features/navpages/screens/saved_job_details.dart';
+import 'package:job_application/src/features/navpages/screens/saved_job_details.dart';
+
+import '../../../constants/colors.dart';
+import '../models/mock_data.dart';
+import 'myjobs_page.dart';
+
 
 enum MenuItem { item1, item2, item3 }
 

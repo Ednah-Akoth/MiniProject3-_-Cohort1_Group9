@@ -1,4 +1,4 @@
-import 'package:job_finder/src/features/navpages/models/job_model.dart';
+import 'package:job_application/src/features/navpages/models/job_model.dart';
 
 final responsibilities = [
   'Work effectively as a member of self-organized agile team that builds, owns and runs the service',

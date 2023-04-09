@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:job_finder/src/constants/colors.dart';
-import 'package:job_finder/src/features/navpages/screens/applied_jobs.dart';
+import 'package:job_application/src/features/navpages/screens/profile_page.dart';
 
-import 'package:job_finder/src/features/navpages/screens/home_page.dart';
-import 'package:job_finder/src/features/navpages/screens/myjobs_page.dart';
-import 'package:job_finder/src/features/navpages/screens/profile_page.dart';
+import '../../../constants/colors.dart';
+import 'applied_jobs.dart';
+import 'home_page.dart';
+import 'myjobs_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:job_finder/src/constants/colors.dart';
-import 'package:job_finder/src/features/navpages/models/mock_data.dart';
-import 'package:job_finder/src/features/navpages/screens/applied_jobs.dart';
-import 'package:job_finder/src/features/navpages/screens/saved_job_details.dart';
+import '../../../constants/colors.dart';
+import '../models/mock_data.dart';
+import 'saved_job_details.dart';
 
 class MyJobsPage extends StatelessWidget {
   const MyJobsPage({super.key});
@@ -11,6 +10,7 @@ class MyJobsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
         title: const ListTile(
           title: Center(
@@ -125,7 +125,6 @@ class MyJobsPage extends StatelessWidget {
                             ],
                           ),
                         ),
-                        
                       ],
                     ),
                   ),

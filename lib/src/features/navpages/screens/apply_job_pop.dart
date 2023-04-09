@@ -1,18 +1,23 @@
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:job_application/src/features/navpages/screens/apply_job_pop.dart';
+import 'package:job_application/src/features/navpages/screens/saved_job_details.dart';
 
 import '../../../constants/colors.dart';
+import '../../authentication/screens/welcome/sign_up2.dart';
 import 'apply_job_popup.dart';
 
-class SpecificJobPop extends StatefulWidget {
+class JobPop extends StatefulWidget {
+  const JobPop({super.key});
+
   @override
-  State<SpecificJobPop> createState() => _SpecificJobPop();
+  State<JobPop> createState() => _JobPopState();
 }
 
-class _SpecificJobPop extends State<SpecificJobPop> {
+class _JobPopState extends State<JobPop> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   //upload CVs using the file_picker package
@@ -154,7 +159,7 @@ class _SpecificJobPop extends State<SpecificJobPop> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: ((context) => JobPop()),
+                            builder: ((context) => Signup()),
                           ));
                     }),
                     child: const Text(
@@ -164,90 +169,89 @@ class _SpecificJobPop extends State<SpecificJobPop> {
               ),
             ]),
           ),
-          // BackdropFilter(
-          //   filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
-          //   child: Container(
-          //       width: double.infinity,
-          //       height: double.infinity,
-          //       color: Colors.black.withOpacity(0.2)),
-          // ),
-          // Center(
-          //   child: Container(
-          //     decoration: BoxDecoration(
-          //       borderRadius: BorderRadius.circular(10),
-          //       color: Colors.white,
-          //     ),
-          //     alignment: Alignment.center,
-          //     width: 330,
-          //     height: 350,
-          //     child: Column(
-          //       children: [
-          //         SizedBox(
-          //           height: 30,
-          //         ),
-          //         SizedBox(
-          //           width: 200,
-          //           height: 100,
-          //           child: Image.network(
-          //               'https://randomuser.me/api/portraits/men/81.jpg'),
-          //         ),
-          //         SizedBox(
-          //           height: 15,
-          //         ),
-          //         const SizedBox(
-          //           width: 200,
-          //           height: 40,
-          //           child: Text(
-          //             textAlign: TextAlign.center,
-          //             'Success',
-          //             style:
-          //                 TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
-          //           ),
-          //         ),
-          //         const SizedBox(
-          //           width: 300,
-          //           height: 40,
-          //           child: Text(
-          //             textAlign: TextAlign.center,
-          //             'Your Application is successfully sent',
-          //             style: TextStyle(
-          //                 fontSize: 18,
-          //                 fontWeight: FontWeight.normal,
-          //                 color: Colors.grey),
-          //           ),
-          //         ),
-          //         SizedBox(
-          //           height: 15,
-          //         ),
-          //         SizedBox(
-          //           height: 65,
-          //           width: 150,
-          //           child: ElevatedButton(
-          //               style: ElevatedButton.styleFrom(
-          //                 backgroundColor: Color.fromRGBO(112, 41, 99, 10),
-          //                 padding: EdgeInsets.symmetric(
-          //                     horizontal: 3.0, vertical: 3.0),
-          //                 shape: RoundedRectangleBorder(
-          //                     borderRadius: BorderRadius.circular(30.0)),
-          //               ),
-          //               // crud operation required here to add the person's details to firebase
-          //               onPressed: (() {
-          //                 Navigator.push(
-          //                     context,
-          //                     MaterialPageRoute(
-          //                       builder: ((context) => SavedJob()),
-          //                     ));
-          //               }),
-          //               child: const Text(
-          //                 textAlign: TextAlign.center,
-          //                 "Continue",
-          //                 style: TextStyle(fontSize: 22),
-          //               )),
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          // ),
+          BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+            child: Container(
+                width: double.infinity,
+                height: double.infinity,
+                color: Colors.black.withOpacity(0.2)),
+          ),
+          Center(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+              ),
+              alignment: Alignment.center,
+              width: 330,
+              height: 350,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 30,
+                  ),
+                  SizedBox(
+                    width: 200,
+                    height: 100,
+                    child: Image.asset('assets/images/rec1.png'),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  const SizedBox(
+                    width: 200,
+                    height: 40,
+                    child: Text(
+                      textAlign: TextAlign.center,
+                      'Success',
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 300,
+                    height: 40,
+                    child: Text(
+                      textAlign: TextAlign.center,
+                      'Your Application is successfully sent',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.grey),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  SizedBox(
+                    height: 65,
+                    width: 150,
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromRGBO(112, 41, 99, 10),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 3.0, vertical: 3.0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0)),
+                        ),
+                        // crud operation required here to add the person's details to firebase
+                        onPressed: (() {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: ((context) => SavedJob()),
+                              ));
+                        }),
+                        child: const Text(
+                          textAlign: TextAlign.center,
+                          "Continue",
+                          style: TextStyle(fontSize: 22),
+                        )),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ]));
   }
 }

@@ -7,6 +7,35 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:730559152401:android:d4a9ca4de3ea0a20598cb0",
+        "android_client_info": {
+          "package_name": "com.example.job_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "730559152401-ffrdq4ftd8ettrbesvnljbdcopmfbp7n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg5P5fHiNy2q1V_38NCpZsO3mtiXIFp58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "730559152401-a1vt9noru7v40tdnaujlltq7mjrtdols.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:730559152401:android:ec5340695eec65ce598cb0",
         "android_client_info": {
           "package_name": "com.example.job_finder"

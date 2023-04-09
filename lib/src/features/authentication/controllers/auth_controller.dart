@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:job_finder/src/features/authentication/screens/welcome/login.dart';
-import 'package:job_finder/src/features/navpages/screens/home_page.dart';
-import 'package:job_finder/src/features/navpages/screens/main_page.dart';
 import '../../../../main.dart';
+import '../../navpages/screens/main_page.dart';
 import '../screens/onboarding_screens/onboarding.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../screens/welcome/login.dart';
 
 class AuthController extends StatelessWidget {
   const AuthController({super.key});

@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.job_finder">
+    package="com.example.job_application">
    <application
-        android:label="job_finder"
+        android:label="job_application"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

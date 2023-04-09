@@ -1,35 +1,16 @@
-# Mobile Development Mini Project 3
-## Description
-We seek to develop a mobile application that simplifies the job search process, one that will help job seekers to efficiently access and apply to  job opportunities while also providing employers a platform to post their job openings for job seekers to apply. This is being done with the aim of increasing transparency in the job application process, increasing employers’ access to talent pools and reducing unemployment by improving peoples access to vacant job positions. The app will be aimed at individuals looking to enter the job market and will be completed by the end of April.
+# job_application
 
+A new Flutter project.
 
+## Getting Started
 
-## Packages Used
-Google Fonts
-Liquid Swipe: for onboarding animation
-Firebase Auth
-File Picker
-Shared Preference
+This project is a starting point for a Flutter application.
 
-## Installation
-To run the project kindly follow the following steps: 
+A few resources to get you started if this is your first Flutter project:
 
-### Clone the project
-git clone https://github.com/Ednah-Akoth/MiniProject3-_-Cohort1_Group9.git
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-### Open the project with vs code
-cd MiniProject3_Cohort1_Group9
-code .
-
-## Install packages used in the project
-flutter pub get
-
-## Run the project (Ensure to choose the device to be used)
-flutter run
-
-
-
-## Authors and Acknowledgment
-Myra Lugwiri
-
-Ednah Akoth
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

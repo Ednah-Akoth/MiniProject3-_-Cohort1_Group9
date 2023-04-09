@@ -1,6 +1,6 @@
 {
-    "name": "job_finder",
-    "short_name": "job_finder",
+    "name": "job_application",
+    "short_name": "job_application",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
