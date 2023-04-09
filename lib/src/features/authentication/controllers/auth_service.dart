@@ -4,8 +4,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 import '../../navpages/screens/main_page.dart';
 import '../screens/welcome/login.dart';
 
-
-
 class AuthService {
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   // REGISTER USER
@@ -75,6 +73,7 @@ class AuthService {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => Login()));
     } on FirebaseAuthException catch (error) {
+      print(error);
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text("${error.toString()}"),
         backgroundColor: Colors.redAccent,
